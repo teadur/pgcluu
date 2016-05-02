@@ -151,7 +151,7 @@ galaxy_info:
      versions:
   #  - all
   #  - etch
-      - Jessie
+      - jessie
   #  - lenny
   #  - sid
   #  - squeeze
