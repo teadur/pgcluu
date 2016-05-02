@@ -3,3 +3,5 @@
 - include: install.yml 
   when: pgcluu_install == 'true'
 
+- include: collect.yml  
+

@@ -1,0 +1,5 @@
+---
+- name: creating pgcluu data dir
+  file: path=/var/cache/pgcluu state=directory owner=postgres
+
+

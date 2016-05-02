@@ -2,4 +2,4 @@
 # defaults file for teadur.pgcluu 
 pgcluu_role_version: "0.0.1"
 pgcluu_version: "2.5"
-pgcluu_instal: false
+pgcluu_install: "false"
