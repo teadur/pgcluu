@@ -1,0 +1,33 @@
+---
+- command: /bin/echo tere!
+
+- name: downloading pgcluu
+  get_url: url=https://github.com/darold/pgcluu/archive/v2.5.tar.gz dest=/tmp/pgcluu-v2.5.tar.gz mode=0440
+
+#- name: creating directory  
+# file: path=/tmp/pgcluu-install state=directory
+
+- name: unpacking pgcluu
+  unarchive: src=/tmp/pgcluu-v2.5.tar.gz dest=/tmp/ copy=no
+
+- name: creating Makefile
+  command: chdir=/tmp/pgcluu-2.5 perl Makefile.PL INSTALLDIRS=vendor
+
+# is make installed?
+- name: make
+  command: chdir=/tmp/pgcluu-2.5 make
+
+# sudo?  
+- name: make install
+  command: chdir=/tmp/pgcluu-2.5 make install
+
+# install/configure sar - TODO: optional
+- name: installing sysstat
+  apt: name=sysstat state=installed
+
+- name: enabling sysstat
+  replace: dest=/etc/default/sysstat regexp='ENABLED="false"' replace='ENABLED="true"'
+
+- service: name=sysstat enabled=yes state=started
+  #  service: name=sysstat state=started
+

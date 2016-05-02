@@ -1,2 +1,5 @@
 ---
 # tasks file for teadur.pgcluu
+- include: install.yml 
+  when: pgcluu_install == 'true'
+
