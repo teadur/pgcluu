@@ -1,0 +1,14 @@
+---
+- name: creating pgcluu data dir
+  file: path=/var/cache/pgcluu state=directory owner=postgres
+
+- name: creating pgcluu manual run data dir
+  file: path=/var/cache/pgcluu/manual state=directory owner=postgres
+  tags: pgcluu-manual
+  
+- name: Manual run of pgcluu_collectd 
+  command: pgcluu_collectd -D -i 60 /var/cache/pgcluu/manual
+  become: yes
+  become_user: postgres
+  tags: pgcluu-manual
+ 

@@ -1,0 +1,6 @@
+---
+-
+#pgcluu_collectd -k
+#LOG: Received terminating signal.
+#mkdir /tmp/report_db1/
+#pgcluu -o /tmp/report_db1/ /tmp/stat_db1/
