@@ -1,12 +1,12 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Role to manage pgcluu installation, data collection and report generation
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+sar system statisticks package ( named: sysstat @ debian )
 
 Role Variables
 --------------
@@ -24,6 +24,13 @@ Example run
 
 
 ansible-playbook -i inventory -l yourhost pgcluu.yml -e pgcluu_install=true
+# start collecting stats
+ansible-playbook -i inventory -l yourhost pgcluu.yml -t manual
+
+# stop collecting stats and generate report
+
+ansible-playbook -i inventory -l yourhost pgcluu.yml -t report
+
 
 
 Example Playbook
