@@ -6,5 +6,6 @@
 - include: manual.yml 
   tags: [manual]
 
-- include: report.yml  
+- include: report.yml
+  tags: [report]
 

@@ -1,6 +1,14 @@
 ---
--
-#pgcluu_collectd -k
-#LOG: Received terminating signal.
-#mkdir /tmp/report_db1/
-#pgcluu -o /tmp/report_db1/ /tmp/stat_db1/
+- name: Stopping pgcluu_collectd
+  command: pgcluu_collectd -k
+  become: yes
+  become_user: postgres
+  tags: pgcluu-report
+
+- name: Creating report dir
+  file: path={{ pgcluu_report }} state=directory
+
+
+- name: Generating pgcluu report
+  command: pgcluu -o {{ pgcluu_report }} /var/cache/pgcluu/manual
+
